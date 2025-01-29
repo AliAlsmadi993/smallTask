@@ -72,9 +72,11 @@
     <Content Include="App_Data\books2.txt" />
     <Content Include="App_Data\meetings.txt" />
     <Content Include="EditBook.aspx" />
+    <Content Include="edit_profile.aspx" />
     <Content Include="home.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MeatingRoom.aspx" />
+    <Content Include="profile.aspx" />
     <Content Include="showBook.aspx" />
     <Content Include="userPage.aspx" />
     <Content Include="Web.config" />
@@ -102,6 +104,13 @@
     <Compile Include="EditBook.aspx.designer.cs">
       <DependentUpon>EditBook.aspx</DependentUpon>
     </Compile>
+    <Compile Include="edit_profile.aspx.cs">
+      <DependentUpon>edit_profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="edit_profile.aspx.designer.cs">
+      <DependentUpon>edit_profile.aspx</DependentUpon>
+    </Compile>
     <Compile Include="home.aspx.cs">
       <DependentUpon>home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -122,6 +131,13 @@
     </Compile>
     <Compile Include="MeatingRoom.aspx.designer.cs">
       <DependentUpon>MeatingRoom.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="profile.aspx.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="profile.aspx.designer.cs">
+      <DependentUpon>profile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="showBook.aspx.cs">

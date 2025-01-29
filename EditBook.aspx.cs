@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Linq;
 
 namespace WebApplication7
 {
@@ -10,6 +11,12 @@ namespace WebApplication7
             if (!IsPostBack)
             {
                 LoadBooks();
+                // إذا كان هناك "bookId" في الـ QueryString، نقوم بتحميل بيانات الكتاب المحدد
+                if (Request.QueryString["bookId"] != null)
+                {
+                    string bookId = Request.QueryString["bookId"];
+                    LoadBookDetails(bookId);
+                }
             }
         }
 
@@ -41,13 +48,6 @@ namespace WebApplication7
 
             // تعيين محتوى الجدول
             booksTableBody.InnerHtml = tableContent;
-
-            // إذا كان هناك "bookId" في الـ QueryString، نقوم بتحميل بيانات الكتاب المحدد
-            if (Request.QueryString["bookId"] != null)
-            {
-                string bookId = Request.QueryString["bookId"];
-                LoadBookDetails(bookId);
-            }
         }
 
         // تحميل بيانات الكتاب المحدد بناءً على الـ ID
@@ -101,7 +101,44 @@ namespace WebApplication7
 
             // حفظ التعديلات في الملف
             File.WriteAllText(filePath, updatedContent);
+
+            LoadBooks();
         }
+
+        // تنفيذ البحث عن الكتب بناءً على الـ bookId
+        protected void SearchBooks_Click(object sender, EventArgs e)
+        {
+            string searchTerm = txtSearch.Text.ToLower(); 
+            string filePath = Server.MapPath("~/App_Data/books2.txt");
+            string[] lines = File.ReadAllLines(filePath);
+            string tableContent = "";
+
+            foreach (var line in lines)
+            {
+                var data = line.Split(',');
+
+                string bookId = data[0];
+                string bookName = data[1];
+                string bookKind = data[2];
+                string bookLevel = data[3];
+
+                if (bookId.ToLower() == searchTerm)
+                {
+                    tableContent += $"<tr style='background-color:#FF0000;'>" +
+                                    $"<td>{bookId}</td>" +
+                                    $"<td>{bookName}</td>" +
+                                    $"<td>{bookKind}</td>" +
+                                    $"<td>{bookLevel}</td>" +
+                                    $"<td><a href='EditBook.aspx?bookId={bookId}' class='btn btn-warning'>Edit</a></td>" +
+                                    $"</tr>";
+                    
+                }
+            }
+            // تعيين محتوى الجدول بعد معالجة جميع الأسطر
+            booksTableBody.InnerHtml = tableContent;
+
+        }
+
 
         protected void btnshow_Click(object sender, EventArgs e)
         {

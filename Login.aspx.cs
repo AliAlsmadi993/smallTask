@@ -44,6 +44,8 @@ namespace WebApplication7
 
                             if (storedEmail == email && storedPassword == password)
                             {
+                                Session["UserEmail"] = email;
+
                                 Response.Redirect("userPage.aspx"); 
 
                                 return;

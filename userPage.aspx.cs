@@ -24,5 +24,10 @@ namespace WebApplication7
             Response.Redirect("Meatingroom.aspx");
 
         }
+
+        protected void Button5_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("profile.aspx");
+        }
     }
 }

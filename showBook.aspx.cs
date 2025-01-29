@@ -11,28 +11,22 @@ namespace WebApplication7
             // المسار إلى ملف الكتب
             string filePath = Server.MapPath("~/App_Data/books2.txt");
 
-            // التحقق إذا كان الملف موجودًا
             if (File.Exists(filePath))
             {
-                // قراءة البيانات من الملف
                 string[] lines = File.ReadAllLines(filePath);
 
-                // التحقق من أن هناك بيانات في الملف
                 if (lines.Length > 0)
                 {
                     foreach (var line in lines)
                     {
-                        // تقسيم البيانات باستخدام الفاصل (نفترض أن البيانات مفصولة بفواصل)
                         string[] bookData = line.Split(',');
 
-                        // إضافة الصفوف إلى الجدول
                         string rowHtml = $"<tr><td>{bookData[0]}</td><td>{bookData[1]}</td><td>{bookData[2]}</td><td>{bookData[3]}</td></tr>";
                         booksTableBody.InnerHtml += rowHtml;
                     }
                 }
                 else
                 {
-                    // إذا كان الملف فارغًا
                     booksTableBody.InnerHtml = "<tr><td colspan='4'>No books available.</td></tr>";
                 }
             }
@@ -43,9 +37,43 @@ namespace WebApplication7
             }
         }
 
+
+       
         protected void btnGoHome_Click(object sender, EventArgs e)
         {
             Response.Redirect("home.aspx");
+
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            string searchTerm = txtSearch.Text.ToLower();
+            string filePath = Server.MapPath("~/App_Data/books2.txt");
+            string[] lines = File.ReadAllLines(filePath);
+            string tableContent = "";
+
+            foreach (var line in lines)
+            {
+                var data = line.Split(',');
+
+                string bookId = data[0];
+                string bookName = data[1];
+                string bookKind = data[2];
+                string bookLevel = data[3];
+
+                if (bookId.ToLower() == searchTerm)
+                {
+                    tableContent += $"<tr style='background-color:#FF0000;'>" +
+                                    $"<td>{bookId}</td>" +
+                                    $"<td>{bookName}</td>" +
+                                    $"<td>{bookKind}</td>" +
+                                    $"<td>{bookLevel}</td>" +
+                                    $"</tr>";
+
+                }
+            }
+            // تعيين محتوى الجدول بعد معالجة جميع الأسطر
+            booksTableBody.InnerHtml = tableContent;
 
         }
     }

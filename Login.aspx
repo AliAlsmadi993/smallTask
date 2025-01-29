@@ -18,6 +18,7 @@
                         <div class="col-md-9 col-lg-6 col-xl-5">
                             <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp" class="img-fluid" alt="Sample image">
                         </div>
+                    
                         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
                             <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
                                 <p class="lead fw-normal mb-0 me-3">Sign in with</p>
@@ -33,19 +34,20 @@
                             </div>
 
                             <div class="divider d-flex align-items-center my-4">
-                                <p class="text-center fw-bold mx-3 mb-0">Or</p>
                             </div>
 
                             <!-- Email input -->
                             <div class="form-outline mb-4">
-                                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control form-control-lg" placeholder="Enter a valid email address"></asp:TextBox>
                                 <label class="form-label" for="txtEmail">Email address</label>
+
+                                <asp:TextBox ID="txtEmail" runat="server" CssClass="form-control form-control-lg" placeholder="Enter a valid email address"></asp:TextBox>
                             </div>
 
                             <!-- Password input -->
                             <div class="form-outline mb-3">
+                             <label class="form-label" for="txtPassword">Password</label>
+
                                 <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control form-control-lg" TextMode="Password" placeholder="Enter password"></asp:TextBox>
-                                <label class="form-label" for="txtPassword">Password</label>
                             </div>
 
                             <div class="d-flex justify-content-between align-items-center">
