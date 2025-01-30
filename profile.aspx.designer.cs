@@ -33,33 +33,6 @@ namespace WebApplication7
         protected global::System.Web.UI.WebControls.Label lblFullName;
 
         /// <summary>
-        /// lblProfileMembershipID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProfileMembershipID;
-
-        /// <summary>
-        /// btnRenew control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRenew;
-
-        /// <summary>
-        /// btnContact control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnContact;
-
-        /// <summary>
         /// lblName control.
         /// </summary>
         /// <remarks>
@@ -78,24 +51,6 @@ namespace WebApplication7
         protected global::System.Web.UI.WebControls.Label lblEmail;
 
         /// <summary>
-        /// lblMembershipID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMembershipID;
-
-        /// <summary>
-        /// lblStatus control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblStatus;
-
-        /// <summary>
         /// lblProfileEmail control.
         /// </summary>
         /// <remarks>
@@ -103,6 +58,15 @@ namespace WebApplication7
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblProfileEmail;
+
+        /// <summary>
+        /// lblPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPassword;
 
         /// <summary>
         /// btnEditProfile control.

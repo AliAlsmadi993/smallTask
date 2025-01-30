@@ -36,21 +36,21 @@ namespace WebApplication7
 
             foreach (var line in lines)
             {
-                if (string.IsNullOrWhiteSpace(line)) continue; // تخطي الأسطر الفارغة
+                if (string.IsNullOrWhiteSpace(line)) continue;
 
                 string[] userData = line.Split(',');
-                if (userData.Length >= 3 && userData[1].Contains(":") && userData[2].Contains(":"))
+                if (userData.Length >= 3)
                 {
                     string storedName = userData[0].Split(':')[1].Trim();
                     string storedEmail = userData[1].Split(':')[1].Trim();
-                    string storedPassword = userData[2].Split(':')[1].Trim(); // غير مستخدم هنا، لكن يمكن حفظه لاحقًا
+                    string storedPassword = userData[2].Split(':')[1].Trim();
 
                     if (storedEmail.Equals(userEmail, StringComparison.OrdinalIgnoreCase))
                     {
                         txtFullName.Text = storedName;
                         txtEmail.Text = storedEmail;
-                        txtMembershipID.Text = "123456"; // قيمة افتراضية
-                        txtStatus.Text = "Active"; // القيمة الافتراضية
+                       
+                        txtPassword.Text = storedPassword;
                         userFound = true;
                         break;
                     }
@@ -86,19 +86,18 @@ namespace WebApplication7
 
             foreach (var line in lines)
             {
-                if (string.IsNullOrWhiteSpace(line)) continue; // تخطي الأسطر الفارغة
+                if (string.IsNullOrWhiteSpace(line)) continue;
 
                 string[] userData = line.Split(',');
-                if (userData.Length >= 3 && userData[1].Contains(":") && userData[2].Contains(":"))
+                if (userData.Length >= 3)
                 {
                     string storedEmail = userData[1].Split(':')[1].Trim();
 
                     if (storedEmail.Equals(userEmail, StringComparison.OrdinalIgnoreCase))
                     {
-                        // تحديث البيانات
                         userData[0] = "Name: " + txtFullName.Text;
                         userData[1] = "Email: " + txtEmail.Text;
-                        userData[2] = "Password: " + userData[2].Split(':')[1].Trim(); // لا نغير كلمة المرور
+                        userData[2] = "Password: " + txtPassword.Text;
 
                         updatedContent += string.Join(",", userData) + Environment.NewLine;
                         userFound = true;
@@ -112,8 +111,8 @@ namespace WebApplication7
 
             if (userFound)
             {
-                File.WriteAllText(filePath, updatedContent); // حفظ التعديلات
-                Response.Redirect("profile.aspx"); // إعادة التوجيه إلى صفحة البروفايل
+                File.WriteAllText(filePath, updatedContent);
+                Response.Redirect("profile.aspx");
             }
             else
             {

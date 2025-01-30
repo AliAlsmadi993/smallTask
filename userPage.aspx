@@ -42,15 +42,16 @@
             font-size: 1rem;
             color: #6c757d;
         }
-        .btn-primary {
+        .btn-card {
             background-color: #007bff;
             border: none;
-            border-radius: 50px;
-            padding: 10px 20px;
+            border-radius: 0;
+            width: 100%;
+            padding: 15px;
             font-size: 1rem;
             transition: background-color 0.3s ease;
         }
-        .btn-primary:hover {
+        .btn-card:hover {
             background-color: #0056b3;
         }
         .row {
@@ -61,10 +62,20 @@
 <body>
 
     <form id="form1" runat="server">
-                                        <asp:Button ID="Button5" runat="server" CssClass="btn btn-primary" Text="profile" OnClick="Button5_Click" />
-
         <div class="container">
             <div class="row row-cols-1 row-cols-md-2 g-4">
+                <!-- Profile Card -->
+                <div class="col">
+                    <div class="card text-center">
+                        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="card-img-top" alt="Profile Image" />
+                        <div class="card-body">
+                            <h5 class="card-title">Profile</h5>
+                            <p class="card-text">Click here to view your profile.</p>
+                        </div>
+                        <asp:Button ID="Button5" runat="server" CssClass="btn btn-card" Text="Profile" OnClick="Button5_Click" />
+                    </div>
+                </div>
+
                 <!-- Show a Book Card -->
                 <div class="col">
                     <div class="card text-center">
@@ -72,8 +83,8 @@
                         <div class="card-body">
                             <h5 class="card-title">Show a Book</h5>
                             <p class="card-text">Click here to view books in the collection.</p>
-                            <asp:Button ID="btnshowBook" runat="server" CssClass="btn btn-primary" Text="Show Book" OnClick="btnshowBook_Click" />
                         </div>
+                        <asp:Button ID="btnshowBook" runat="server" CssClass="btn btn-card" Text="Show Book" OnClick="btnshowBook_Click" />
                     </div>
                 </div>
 
@@ -84,8 +95,8 @@
                         <div class="card-body">
                             <h5 class="card-title">Show a Meeting Room</h5>
                             <p class="card-text">Click here to view available meeting rooms.</p>
-                            <asp:Button ID="showMeatingroom" runat="server" CssClass="btn btn-primary" Text="Meeting Room" OnClick="showMeatingroom_Click" />
                         </div>
+                        <asp:Button ID="showMeatingroom" runat="server" CssClass="btn btn-card" Text="Meeting Room" OnClick="showMeatingroom_Click" />
                     </div>
                 </div>
             </div>

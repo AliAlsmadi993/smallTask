@@ -56,12 +56,8 @@ namespace WebApplication7
                             lblProfileEmail.Text = storedEmail;
                         if (lblFullName != null)
                             lblFullName.Text = storedName;
-                        if (lblProfileMembershipID != null)
-                            lblProfileMembershipID.Text = "123456"; // قيمة افتراضية
-                        if (lblMembershipID != null)
-                            lblMembershipID.Text = "123456"; // قيمة افتراضية
-                        if (lblStatus != null)
-                            lblStatus.Text = "Active"; // الحالة
+                        if (lblPassword != null)
+                            lblPassword.Text = storedPassword;
 
                         userFound = true;
                         break;
