@@ -52,8 +52,6 @@ namespace WebApplication7
                             lblName.Text = storedName;
                         if (lblEmail != null)
                             lblEmail.Text = storedEmail;
-                        if (lblProfileEmail != null)
-                            lblProfileEmail.Text = storedEmail;
                         if (lblFullName != null)
                             lblFullName.Text = storedName;
                         if (lblPassword != null)
