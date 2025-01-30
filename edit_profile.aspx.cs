@@ -19,6 +19,10 @@ namespace WebApplication7
             string filePath = Server.MapPath("~/App_Data/registrations1.txt");
             string userEmail = Session["UserEmail"] as string;
 
+            //string userEmail = File.Exists(Server.MapPath("~/App_Data/login_data.txt"))
+            //? File.ReadAllLines(Server.MapPath("~/App_Data/login_data.txt"))[0].Split(',')[0].Trim()
+            //: null;
+
             if (string.IsNullOrEmpty(userEmail))
             {
                 Response.Write("No user is logged in.");
@@ -49,7 +53,6 @@ namespace WebApplication7
                     {
                         txtFullName.Text = storedName;
                         txtEmail.Text = storedEmail;
-                       
                         txtPassword.Text = storedPassword;
                         userFound = true;
                         break;

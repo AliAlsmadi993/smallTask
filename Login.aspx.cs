@@ -41,10 +41,17 @@ namespace WebApplication7
                                 Response.Redirect("AdminPage.aspx");
                                 return;
                             }
+                            string filePath1 = Server.MapPath("~/App_Data/login_data.txt"); // تحديد مسار ملف التخزين
 
                             if (storedEmail == email && storedPassword == password)
                             {
                                 Session["UserEmail"] = email;
+
+
+                                //string enteredEmail = txtEmail.Text.Trim(); 
+
+                                //File.WriteAllText(filePath1, enteredEmail);
+
 
                                 Response.Redirect("userPage.aspx"); 
 
